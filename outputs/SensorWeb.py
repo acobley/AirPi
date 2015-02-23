@@ -5,15 +5,20 @@ import socket
 
 class SensorWeb(output.Output):
 	requiredData = ["Device","Host"]
-	optionalData = []
+	optionalData = ["Lat","Lng","Town","Name"]
 	def __init__(self,data):
 		self.Device=data["Device"]
 		self.Host=data["Host"]
+		meta=[]
+		meta.append({"Lat":data["Lat"]})
+		meta.append({"Lng":data["Lng"]})
+		meta.append({"Town":data["Town"]})
+		meta.append({"Name":data["Name"]})
 	def outputData(self,dataPoints):
 		arr = []
 		for i in dataPoints:
 			arr.append({"name":i["name"],"fValue":i["value"]})
-		a = json.dumps({"SensorData":{"device":self.Device,"insertion_time":str(datetime.datetime.now())},"version":"1.0.0","sensors":arr})
+		a = json.dumps({"SensorData":{"device":self.Device,"insertion_time":str(datetime.datetime.now())},"version":"1.0.0","meta":meta,"sensors":arr})
 	
 		print ""
 		print "Time: " + str(datetime.datetime.now())
