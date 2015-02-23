@@ -2,14 +2,11 @@ import output
 import datetime
 import json
 
-class Print(output.Output):
+class SensorWeb(output.Output):
 	requiredData = ["Device"]
 	optionalData = []
 	def __init__(self,data):
 		self.Device=data["Device"]
-		
-	def __init__(self,data):
-		pass
 	def outputData(self,dataPoints):
 		arr = []
 		arr.append({"Device":self.Device}) 
