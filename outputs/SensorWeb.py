@@ -32,4 +32,5 @@ class SensorWeb(output.Output):
 		clientsocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		clientsocket.connect((self.Host, 19877))
 		clientsocket.send(a)
+		clientsocket.close()
 		return True
