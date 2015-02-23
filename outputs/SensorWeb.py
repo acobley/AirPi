@@ -9,20 +9,20 @@ class SensorWeb(output.Output):
 	def __init__(self,data):
 		self.Device=data["Device"]
 		self.Host=data["Host"]
-		meta=[]
+		self.meta=[]
 		if "Lat" in data.keys():
-			meta.append({"Lat":data["Lat"]})
+			self.meta.append({"Lat":data["Lat"]})
 		if "Lng" in data.keys():
-			meta.append({"Lng":data["Lng"]})
+			self.meta.append({"Lng":data["Lng"]})
 		if "Town" in data.keys():	
-			meta.append({"Town":data["Town"]})
+			self.meta.append({"Town":data["Town"]})
 		if "Name" in data.keys():
-			meta.append({"Name":data["Name"]})
+			self.meta.append({"Name":data["Name"]})
 	def outputData(self,dataPoints):
 		arr = []
 		for i in dataPoints:
 			arr.append({"name":i["name"],"fValue":i["value"]})
-		a = json.dumps({"SensorData":{"device":self.Device,"insertion_time":str(datetime.datetime.now())},"version":"1.0.0","meta":meta,"sensors":arr})
+		a = json.dumps({"SensorData":{"device":self.Device,"insertion_time":str(datetime.datetime.now())},"version":"1.0.0","meta":self.meta,"sensors":arr})
 	
 		print ""
 		print "Time: " + str(datetime.datetime.now())
