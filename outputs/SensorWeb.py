@@ -20,6 +20,6 @@ class SensorWeb(output.Output):
 			print "Sensor "+i["name"] + ": " + str(i["value"]) + " " + i["symbol"]
 		print "Json "+a
 		clientsocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-clientsocket.connect(('r2proaa2.miniserver.com', 19877))
-clientsocket.send(a)
+		clientsocket.connect(('r2proaa2.miniserver.com', 19877))
+		clientsocket.send(a)
 		return True
