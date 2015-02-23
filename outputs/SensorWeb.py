@@ -10,5 +10,5 @@ class Print(output.Output):
 		print ""
 		print "Time: " + str(datetime.datetime.now())
 		for i in dataPoints:
-			print i["Sensor name"] + ": " + str(i["value"]) + " " + i["symbol"]
+			print "Sensor "+i["name"] + ": " + str(i["value"]) + " " + i["symbol"]
 		return True
