@@ -1,6 +1,7 @@
 import output
 import datetime
 import json
+import socket
 
 class SensorWeb(output.Output):
 	requiredData = ["Device"]
@@ -18,4 +19,7 @@ class SensorWeb(output.Output):
 		for i in dataPoints:
 			print "Sensor "+i["name"] + ": " + str(i["value"]) + " " + i["symbol"]
 		print "Json "+a
+		clientsocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+clientsocket.connect(('r2proaa2.miniserver.com', 19877))
+clientsocket.send(a)
 		return True
