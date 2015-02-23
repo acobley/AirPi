@@ -9,15 +9,15 @@ class SensorWeb(output.Output):
 	def __init__(self,data):
 		self.Device=data["Device"]
 		self.Host=data["Host"]
-		self.meta=set()
+		self.meta=dict()
 		if "Lat" in data.keys():
-			self.meta.add({"Lat":data["Lat"]})
+			self.meta.update({"Lat":data["Lat"]})
 		if "Lng" in data.keys():
-			self.meta.append({"Lng":data["Lng"]})
+			self.meta.update({"Lng":data["Lng"]})
 		if "Town" in data.keys():	
-			self.meta.append({"Town":data["Town"]})
+			self.meta.update({"Town":data["Town"]})
 		if "Name" in data.keys():
-			self.meta.append({"Name":data["Name"]})
+			self.meta.update({"Name":data["Name"]})
 	def outputData(self,dataPoints):
 		arr = []
 		for i in dataPoints:
