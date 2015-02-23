@@ -12,9 +12,12 @@ class SensorWeb(output.Output):
 		meta=[]
 		if "Lat" in data.keys():
 		   meta.append({"Lat":data["Lat"]})
-		meta.append({"Lng":data["Lng"]})
-		meta.append({"Town":data["Town"]})
-		meta.append({"Name":data["Name"]})
+	    if "Lng" in data.keys():
+			meta.append({"Lng":data["Lng"]})
+		if "Town" in data.keys():	
+			meta.append({"Town":data["Town"]})
+		if "Name" in data.keys():
+			meta.append({"Name":data["Name"]})
 	def outputData(self,dataPoints):
 		arr = []
 		for i in dataPoints:
