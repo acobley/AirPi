@@ -12,7 +12,7 @@ class SensorWeb(output.Output):
 		arr = []
 		for i in dataPoints:
 			arr.append({"name":i["name"],"fValue":i["value"]})
-		a = json.dumps({"Device":self.Device,"insertion_time":str(datetime.datetime.now()),"version":"1.0.0","sensors":arr})
+		a = json.dumps({"SensorData":{"device":self.Device,"insertion_time":str(datetime.datetime.now())},"version":"1.0.0","sensors":arr})
 	
 		print ""
 		print "Time: " + str(datetime.datetime.now())
