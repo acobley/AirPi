@@ -7,7 +7,7 @@ class Print(output.Output):
 	def __init__(self,data):
 		pass
 	def outputData(self,dataPoints):
-	arr = []
+		arr = []
 		for i in dataPoints:
 			arr.append({"id":i["name"],"current_value":i["value"]})
 		a = json.dumps({"version":"1.0.0","datastreams":arr})
