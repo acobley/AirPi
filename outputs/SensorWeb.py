@@ -4,10 +4,11 @@ import json
 import socket
 
 class SensorWeb(output.Output):
-	requiredData = ["Device"]
+	requiredData = ["Device","Host"]
 	optionalData = []
 	def __init__(self,data):
 		self.Device=data["Device"]
+		self.Host=data["Host"]
 	def outputData(self,dataPoints):
 		arr = []
 		for i in dataPoints:
