@@ -10,7 +10,7 @@ class SensorWeb(output.Output):
 		self.Device=data["Device"]
 		self.Host=data["Host"]
 		meta=[]
-		if ("Lat" in data.keys())
+		if "Lat" in data.keys()
 		   meta.append({"Lat":data["Lat"]})
 		meta.append({"Lng":data["Lng"]})
 		meta.append({"Town":data["Town"]})
