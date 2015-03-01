@@ -31,6 +31,6 @@ class SensorWeb(output.Output):
 		print "Json "+a
 		clientsocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		clientsocket.connect((self.Host, 19877))
-		clientsocket.send(a)
+		clientsocket.send(a+"\r\n")
 		clientsocket.close()
 		return True
